@@ -30,4 +30,6 @@ Allowed nodes only:
 - `5 Successful Email Conversations/` — five successful conversation folders
 - `6th email [bonus]/` — bonus unknown-question conversation
 
-The workflow screenshots and email-conversation evidence are kept as release assets for this repository.
+[Open the Module 1 release assets](https://github.com/arifmohiuddin726-ship-it/AI-Email-Assistant-for-a-Dental-Clinic-1/releases/tag/module-1-ai-email-assistant) to view/download the system-prompt copy, workflow screenshots, successful email-conversation screenshots, and bonus evidence.
+
+The workflow screenshots and email-conversation evidence are kept as release assets because the original Drive files must remain untouched.
