@@ -35,10 +35,10 @@ This project accepts a keyword through a GET Webhook, searches Unsplash, keeps t
 - Production test: `https://arif9928.app.n8n.cloud/webhook/image-agent?q=cow`
 - Webhook test: `https://arif9928.app.n8n.cloud/webhook-test/image-agent?q=tea`
 
+## Evidence
+
+[Open the Module 2 release assets](https://github.com/arifmohiuddin726-ship-it/AI-Email-Assistant-for-a-Dental-Clinic-1/releases/tag/module-2-unsplash-image-agent) to view/download the six workflow screenshots and two screen recordings.
+
 ## Security note
 
 The source workflow contained an Unsplash Client-ID. The GitHub copy uses `YOUR_UNSPLASH_ACCESS_KEY` as a safe placeholder. Add the real credential through n8n credentials or a secret manager; do not commit it to a public repository.
-
-## Submission evidence
-
-Workflow screenshots and recordings are attached to the repository's Module 2 release assets so the client can inspect the evidence without changing Google Drive.
