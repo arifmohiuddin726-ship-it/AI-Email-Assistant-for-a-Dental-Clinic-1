@@ -1,0 +1,58 @@
+{
+  "name": "Unsplash Image Agent (n8n)",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "image-agent",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 0],
+      "id": "419cc98d-e1c2-45c6-bc39-fb14c6b3d770",
+      "name": "Webhook",
+      "webhookId": "c79db4f4-b928-4d6d-a6d7-742a2a08aeb0"
+    },
+    {
+      "parameters": {
+        "url": "https://api.unsplash.com/search/photos",
+        "sendQuery": true,
+        "queryParameters": {"parameters": [{"name": "query", "value": "={{ $json.query.q }}"}, {"name": "per_page", "value": "3"}]},
+        "sendHeaders": true,
+        "headerParameters": {"parameters": [{"name": "Authorization", "value": "Client-ID YOUR_UNSPLASH_ACCESS_KEY"}]},
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [240, 0],
+      "id": "7c0b0cfe-2280-4eb0-b249-14aade65c16a",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {"assignments": {"assignments": [{"id": "39b54d2e-2a1c-4094-85af-546f74485ba4", "name": "images", "value": "={{$json.results.map(r => r.urls.full)}}", "type": "string"}]}, "options": {}},
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [448, 0],
+      "id": "a0ad1dde-60fe-45a7-8966-a94ce3a8067d",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {"options": {}},
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [672, 0],
+      "id": "7a33295c-4399-4db8-b5bd-c28b04bbe84f",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {"Webhook": {"main": [[{"node": "HTTP Request", "type": "main", "index": 0}]]}, "HTTP Request": {"main": [[{"node": "Edit Fields", "type": "main", "index": 0}]]}, "Edit Fields": {"main": [[{"node": "Respond to Webhook", "type": "main", "index": 0}]]}},
+  "active": true,
+  "settings": {"executionOrder": "v1", "binaryMode": "separate", "availableInMCP": false},
+  "versionId": "8ca6b403-99df-429c-964a-c9d429340de6",
+  "meta": {"instanceId": "43fb8ef8d41a714bc9fb48008488f61f40c56024987e83f2e60a698ac1325873"},
+  "nodeGroups": [],
+  "id": "dQCFp9nnicJVlzcC",
+  "tags": []
+}
